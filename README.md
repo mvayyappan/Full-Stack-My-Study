@@ -1,238 +1,278 @@
-# My Study Life - Quiz Platform
+# My Study Life - Full Stack Quiz Platform
 
-A full-stack competitive exam preparation platform with quiz system, progress tracking, and study materials for students preparing for TNPSC, Banking, Railways, and SSC exams.
+A complete full-stack competitive exam preparation platform with quiz system, real-time scoring, user authentication, and progress tracking. Built for students preparing for **TNPSC, Banking, Railways, and SSC** exams.
 
-## Project Structure
+## 🚀 Features
+
+✅ **User Authentication** - Secure signup/login with JWT tokens  
+✅ **50+ Quizzes** - 500+ questions across multiple subjects  
+✅ **Quiz Player** - Real-time timer, progress tracking, instant scoring  
+✅ **Progress Dashboard** - Track quiz history and performance  
+✅ **Responsive Design** - Works on desktop and mobile  
+✅ **API Documentation** - Auto-generated Swagger UI  
+✅ **GitHub Pages Deployment** - Live frontend hosting  
+
+## 📁 Project Structure
 
 ```
 My-Study-Life-Project/
-├── frontend/              # Frontend web application
-│   ├── index.html        # Home page
-│   ├── css/              # Stylesheets
-│   ├── js/               # JavaScript (API client, scripts)
-│   ├── pages/            # HTML pages (dashboard, quiz, etc.)
-│   ├── assets/           # Images and resources
-│   └── pages/e-books/    # E-books pages
+├── frontend/                    # Web application (HTML/CSS/JS)
+│   ├── index.html              # Home page
+│   ├── pages/
+│   │   ├── login.html          # Login page
+│   │   ├── signup.html         # Registration page
+│   │   ├── dashboard.html      # Quiz dashboard
+│   │   ├── quiz.html           # Quiz player
+│   │   ├── quiz_selection.html # Quiz selection
+│   │   └── e-books/            # Study materials
+│   ├── css/                    # Stylesheets
+│   ├── js/
+│   │   └── api.js             # Backend API client
+│   └── assets/                # Images and resources
 │
-├── backend/              # FastAPI backend server
-│   ├── main.py          # Application entry point
-│   ├── models.py        # SQLAlchemy ORM models
-│   ├── database.py      # Database configuration
-│   ├── routers/         # API route handlers
-│   │   ├── auth.py      # Authentication endpoints
-│   │   ├── quiz.py      # Quiz endpoints
-│   │   └── ...
-│   ├── utils/           # Utility functions
-│   │   └── security.py  # JWT token management
-│   ├── venv/            # Python virtual environment
-│   └── requirements.txt # Python dependencies
+├── backend/                     # FastAPI backend server
+│   ├── main.py                # Application entry point
+│   ├── models.py              # Database models
+│   ├── database.py            # DB configuration
+│   ├── routers/
+│   │   ├── auth.py            # Auth endpoints
+│   │   └── quiz.py            # Quiz endpoints
+│   ├── utils/
+│   │   └── security.py        # JWT token handling
+│   ├── mega_seed.py           # Database seeding
+│   └── requirements.txt        # Python dependencies
 │
+├── docs/                        # GitHub Pages content
+├── .github/workflows/          # CI/CD automation
+├── .gitignore
 └── README.md
 ```
 
-## Features
-
-- **User Authentication**: Signup/Login with JWT tokens
-- **Quiz System**: 50+ quizzes with 500+ questions across 5 subjects
-- **Three Difficulty Levels**: Easy, Medium, Hard
-- **Quiz Player**: Full-featured quiz interface with:
-  - Real-time timer
-  - Progress tracking
-  - Score calculation
-  - Answer submission
-- **Progress Tracking**: User quiz results and performance analytics
-- **Responsive Design**: Works on desktop and mobile devices
-- **Exam Categories**:
-  - TNPSC (Tamil Nadu Public Service Commission)
-  - Banking (SBI, IBPS, RBI)
-  - Railways (RRB NTPC, Group D)
-  - SSC (Central Government Services)
-
-## Tech Stack
+## 🛠 Tech Stack
 
 ### Frontend
-- HTML5, CSS3, JavaScript (Vanilla)
+- **HTML5**, **CSS3**, **JavaScript** (Vanilla)
 - Fetch API for backend communication
-- LocalStorage for token persistence
-- Font Awesome icons
+- LocalStorage for token management
+- Font Awesome 6.4.2 icons
 - Google Fonts
+- Responsive grid layout
 
 ### Backend
-- **Framework**: FastAPI 0.128.0
-- **Database**: PostgreSQL
-- **ORM**: SQLAlchemy 2.0.45
-- **Authentication**: JWT (JSON Web Tokens)
-- **Server**: Uvicorn ASGI server
+- **FastAPI** 0.128.0 - Modern Python web framework
+- **PostgreSQL** - Relational database
+- **SQLAlchemy** 2.0.45 - ORM
+- **JWT Authentication** - Secure token-based auth
+- **Uvicorn** - ASGI server
+- **CORS** - Cross-origin support
 
-## Installation
+## ⚡ Quick Start
 
 ### Backend Setup
 
-1. **Navigate to backend directory**:
-   ```bash
-   cd backend
-   ```
+```bash
+# Navigate to backend
+cd backend
 
-2. **Create virtual environment**:
-   ```bash
-   python -m venv venv
-   ```
+# Create virtual environment
+python -m venv venv
 
-3. **Activate virtual environment**:
-   - **Windows**: `.\venv\Scripts\activate`
-   - **Mac/Linux**: `source venv/bin/activate`
+# Activate virtual environment
+# Windows:
+.\venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
 
-4. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+# Install dependencies
+pip install -r requirements.txt
 
-5. **Create database**:
-   ```bash
-   python -c "from database import init_db; init_db()"
-   ```
+# Create and seed database
+python -c "from database import init_db; init_db()"
+python mega_seed.py
 
-6. **Seed sample data**:
-   ```bash
-   python mega_seed.py
-   ```
+# Start server
+python main.py
+```
 
-7. **Start backend server**:
-   ```bash
-   python main.py
-   ```
-   Backend will run on `http://127.0.0.1:8000`
+Backend runs on: `http://127.0.0.1:8000`
 
 ### Frontend Setup
 
-1. **Navigate to project root**:
-   ```bash
-   cd ..
-   ```
+```bash
+# From project root
+cd frontend
 
-2. **Start a local HTTP server**:
-   ```bash
-   python -m http.server 5500
-   ```
-   Frontend will run on `http://127.0.0.1:5500`
+# Start local server
+python -m http.server 5500
+```
 
-3. **Open in browser**:
-   - Navigate to `http://127.0.0.1:5500/frontend/`
+Frontend runs on: `http://127.0.0.1:5500`
 
-## API Documentation
+Visit: `http://127.0.0.1:5500/index.html`
 
-Once the backend is running, view API docs at:
-- **Swagger UI**: `http://127.0.0.1:8000/docs`
-- **ReDoc**: `http://127.0.0.1:8000/redoc`
-
-## Database Schema
-
-### Tables
-- **users**: User accounts and authentication
-- **quizzes**: Quiz metadata and configuration
-- **questions**: Quiz questions with options
-- **user_answers**: Student quiz responses
-- **progress**: User quiz attempt history and scores
-
-### Sample Data
-- 50 quizzes (10 of each: Tamil, English, Maths, Science, Social Studies)
-- 500+ questions (10 questions per quiz)
-- Multiple difficulty levels (Easy, Medium, Hard)
-- Available for grades 6-10
-
-## Sample Credentials
+## 📚 Sample Login Credentials
 
 ```
-Email: test@example.com
+Email:    test@example.com
 Password: testpassword123
 ```
 
-## Usage
+## 🔌 API Documentation
 
-1. **Register** - Create new account on signup page
-2. **Login** - Access dashboard after authentication
-3. **Browse Quizzes** - View all available quizzes on dashboard
-4. **Start Quiz** - Click on any quiz to begin
-5. **Answer Questions** - Select answers and navigate through questions
-6. **Submit** - Complete quiz and view results
-7. **Track Progress** - Monitor your quiz performance on dashboard
+Once backend is running:
 
-## API Endpoints
+- **Swagger UI**: http://127.0.0.1:8000/docs
+- **ReDoc**: http://127.0.0.1:8000/redoc
+
+### Key Endpoints
+
+#### Authentication
+```
+POST   /api/auth/signup          - Register new user
+POST   /api/auth/login           - Login user
+POST   /api/auth/logout          - Logout user
+GET    /api/auth/me              - Get current user
+```
+
+#### Quizzes
+```
+GET    /api/quizzes              - List all quizzes
+GET    /api/quiz/{quiz_id}       - Get quiz with questions
+POST   /api/quiz/{quiz_id}/submit - Submit quiz answers
+GET    /api/progress             - Get user progress
+```
+
+## 📊 Database Schema
+
+| Table | Purpose |
+|-------|---------|
+| **users** | User accounts, authentication, profile |
+| **quizzes** | Quiz metadata (title, description, category) |
+| **questions** | Quiz questions with multiple choice options |
+| **user_answers** | Student responses during quiz |
+| **progress** | Quiz history, scores, timestamps |
+
+### Sample Data Included
+- 50 complete quizzes
+- 500+ questions (10 per quiz)
+- Multiple difficulty levels
+- Standard 1-12 study materials
+- Bank, Railway, SSC, TNPSC exams
+
+## 🐛 Troubleshooting
+
+### Invalid Token Error
+```
+Solution: Clear localStorage and login again
+1. Open DevTools (F12)
+2. Go to Application → LocalStorage
+3. Delete 'authToken' key
+4. Login again
+```
+
+### Quiz Not Loading
+```
+Checklist:
+✓ PostgreSQL service is running
+✓ Backend server is running (python main.py)
+✓ Database is seeded (python mega_seed.py)
+✓ API URL is correct in frontend/js/api.js
+```
+
+### CORS Issues
+```
+Ensure:
+✓ Backend CORS origins include frontend URL
+✓ Requests include correct Authorization header
+✓ Tokens are being sent as Bearer tokens
+```
+
+## 🚀 Deployment
+
+### Frontend (GitHub Pages)
+```bash
+# Deployment is automated via GitHub Actions
+# Push to main branch and it auto-deploys to gh-pages
+git push origin main
+```
+
+Live at: https://mvayyappan.github.io/My-Study-Life-Project/
+
+### Backend (Optional)
+Deploy to: Heroku, AWS, DigitalOcean, Google Cloud
+
+Update API_URL in `frontend/js/api.js` to production endpoint.
+
+## 📱 Features Detail
+
+### Quiz Player
+- Real-time countdown timer
+- Question navigation (previous/next)
+- Progress indicator
+- Instant score calculation
+- Results display with statistics
+
+### Dashboard
+- Featured quizzes (quick access)
+- Quiz categories
+- Progress overview
+- Quiz history
 
 ### Authentication
-- `POST /api/auth/signup` - Register new user
-- `POST /api/auth/login` - Login user
-- `POST /api/auth/logout` - Logout user
-- `GET /api/auth/me` - Get current user profile
+- User registration
+- Email-based login
+- JWT token security
+- Auto-logout on token expiry
+- Token validation on page load
 
-### Quizzes
-- `GET /api/quizzes` - List all quizzes
-- `GET /api/quiz/{quiz_id}` - Get quiz with questions
-- `POST /api/quiz/{quiz_id}/submit` - Submit quiz answers
-- `GET /api/progress` - Get user progress/history
+## 🔐 Security
 
-## Configuration
+- JWT tokens with HS256 algorithm
+- Tokens expire after 24 hours
+- Secure password validation
+- CORS protection
+- SQL injection prevention via ORM
+- XSS protection in frontend
 
-Backend settings in `backend/main.py`:
-- **Database URL**: PostgreSQL connection string
-- **Secret Key**: JWT secret for token signing
-- **CORS Origins**: Allowed frontend origins
-- **Token Expiration**: JWT token validity period
+## 🎯 Quiz Categories
 
-## Development
+- **TNPSC** - Tamil Nadu Public Service Commission
+- **Banking** - SBI, IBPS, RBI exams
+- **Railways** - RRB NTPC, Group D
+- **SSC** - Central Government Services
+- **Standard Materials** - Grades 1-12 study materials
 
-### Making Changes
-
-1. **Backend changes**: Edit files in `backend/` and restart server
-2. **Frontend changes**: Edit files in `frontend/` (auto-loaded in browser)
-3. **Database schema changes**: Update `models.py` and run migrations
-
-### Troubleshooting
-
-#### Invalid Token Error
-- Clear browser localStorage (DevTools → Application → LocalStorage)
-- Login again to get fresh token
-- Check backend is running with `python main.py`
-
-#### Quiz Not Loading
-- Ensure PostgreSQL is running
-- Verify database has quiz data: `python mega_seed.py`
-- Check network tab in browser DevTools
-
-#### CORS Issues
-- Verify frontend URL matches CORS allowed origins in backend
-- Check backend is running before opening frontend
-
-## Deployment
-
-### Backend
-- Host on cloud platform (Heroku, AWS, DigitalOcean, Google Cloud)
-- Set environment variables for database and secrets
-- Use production database
-
-### Frontend
-- Host on GitHub Pages, Vercel, or Netlify
-- Update API_URL in js/api.js to point to production backend
-- Build and deploy
-
-## Future Enhancements
+## 📈 Future Enhancements
 
 - [ ] Admin dashboard for quiz management
-- [ ] Analytics and performance reports
-- [ ] Certificate generation upon completion
+- [ ] Advanced analytics and reports
+- [ ] Certificate generation
 - [ ] Leaderboard system
-- [ ] Study materials library
-- [ ] Notes taking feature
-- [ ] Mobile app (React Native/Flutter)
+- [ ] Mobile app (React Native)
+- [ ] Real-time collaboration
+- [ ] Video tutorials integration
 
-## License
+## ✨ Recent Updates
 
-MIT License - feel free to use for educational purposes
+✅ Fixed JWT token extraction for quiz submission  
+✅ Added login page token validation  
+✅ Deployed to GitHub Pages  
+✅ Organized frontend/backend folders  
+✅ Bilingual support removed for simplicity  
+✅ Comprehensive error handling and logging  
 
-## Support
+## 📞 Support
 
-For issues, questions, or suggestions, please open an issue on GitHub.
+- Open an issue on GitHub for bugs/requests
+- Check troubleshooting section above
+- Review API documentation at `/docs` endpoint
+
+## 📄 License
+
+MIT License - Free to use for educational purposes
 
 ---
 
-**Built with ❤️ for competitive exam aspirants**
+**Built with ❤️ for competitive exam aspirants**  
+**Last Updated**: February 2026  
+**Status**: ✅ Production Ready
